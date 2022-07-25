@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+  <script th:src="@{config.js}"></script>
+</head>
+<body>
+<div class="container text-center">
+  <div>
+    <h1>Register - Signup</h1>
+  </div>
+  <div class="m-3">
+    <form th:action="@{/process_register}" method = "post" style="max-width: 600px; margin: 0 auto;" th:object="${user}">
+      <div class = "form-group row">
+        <label class = "col-form-label col-4">Tên đăng nhập</label>
+        <div class="col-8">
+          <input id="name" type="text" class = "form-control" th:field="*{email}" required minlength="3" maxlength="256"/>
+        </div>
+      </div>
+      <div class = "form-group row">
+        <label class = "col-form-label col-4">Mật khẩu</label>
+        <div class="col-8">
+          <input id="p1" type="password" class = "form-control" th:field="*{password}" required minlength="8" maxlength="256"/>
+        </div>
+      </div>
+      <div class = "form-group row">
+        <label class = "col-form-label col-4">Xác nhận mật khẩu</label>
+        <div class="col-8">
+          <input id="p2" type="password" class = "form-control" required minlength="8" maxlength="256"/>
+        </div>
+      </div>
+
+
+      <div class = "form-group row">
+        <label class = "col-form-label col-4">Tên</label>
+        <div class="col-8">
+          <input type="text" class = "form-control" th:field="*{firstName}" required minlength="2" maxlength="20"/>
+        </div>
+      </div>
+
+
+      <div class = "form-group row">
+        <label class = "col-form-label col-4">Họ</label>
+        <div class="col-8">
+          <input type="text" class = "form-control" th:field="*{lastName}" required minlength="2" maxlength="20"/>
+        </div>
+      </div>
+
+
+      <div>
+        <button id="btn" type="submit" class="btn btn-primary">Đăng ký</button> <h5><a th:href="@{/list_users}"> Quay lại trang chủ</h5>
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>
